@@ -1,6 +1,4 @@
 # Security keys - DO NOT COMMIT
-Secure/keys.json
-Secure/keys_backup_*.json
 config/keys.json
 config/keys_backup_*.json
 
