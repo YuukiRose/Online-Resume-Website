@@ -1,0 +1,117 @@
+# Debug & Testing Scripts
+
+This folder contains all debug, testing, and migration scripts for the Luthor Portfolio system.
+
+## 🔧 Database Migration Scripts
+
+### `migrate_database.php`
+- **Purpose**: Complete database schema migration from old to new testimonial system
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/migrate_database.php`
+- **Features**: Creates users table, adds user_id foreign keys, standardizes column names
+
+### `standardize_database.php`
+- **Purpose**: Standardizes database column names (testimonial → message)
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/standardize_database.php`
+- **Features**: Renames columns, adds missing fields, ensures consistency
+
+### `add_linkedin_integration.php`
+- **Purpose**: Adds LinkedIn profile support to users and testimonials tables
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/add_linkedin_integration.php`
+- **Features**: Adds linkedin_profile columns, profile_picture_url columns
+
+### `update_schema.php`
+- **Purpose**: General database schema updates and fixes
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/update_schema.php`
+- **Features**: Adds missing columns, foreign key constraints
+
+### `fix_password_reset.php`
+- **Purpose**: Fixes password reset system by adding verified column
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/fix_password_reset.php`
+- **Features**: Adds verified column to password_reset_tokens table
+
+### `add_verified_column.php`
+- **Purpose**: Adds verified column to password reset tokens
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/add_verified_column.php`
+- **Features**: Specific fix for password reset verification
+
+## 🐛 Debug Scripts
+
+### `debug_database.php`
+- **Purpose**: Examines database structure and data for troubleshooting
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/debug_database.php`
+- **Features**: Shows table structures, sample data, relationship status
+
+### `debug_password_reset.php`
+- **Purpose**: Debugs password reset system functionality
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/debug_password_reset.php`
+- **Features**: Shows token status, verification codes, session data
+
+### `debug_reset_session.php`
+- **Purpose**: Debugs password reset session management
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/debug_reset_session.php`
+- **Features**: Session analysis, token validation, state debugging
+
+### `debug_session.php`
+- **Purpose**: General session debugging for admin authentication
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/debug_session.php`
+- **Features**: Admin session analysis, token verification
+
+## 🧪 Test Scripts
+
+### `test_user_dashboard.php`
+- **Purpose**: Tests user dashboard functionality and data loading
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/test_user_dashboard.php`
+- **Features**: User authentication test, testimonial loading verification
+
+### `test_password_reset_flow.php`
+- **Purpose**: End-to-end testing of password reset workflow
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/test_password_reset_flow.php`
+- **Features**: Complete password reset flow testing, email verification
+
+## 🔐 Security Scripts
+
+### `encrypt_password.php`
+- **Purpose**: Encrypts email passwords for secure storage
+- **Usage**: Visit `http://localhost/Luthor/admin/Debug/encrypt_password.php`
+- **Security**: **DELETE AFTER USE** - Contains password encryption functionality
+- **Features**: AES-256-CBC encryption, secure key generation
+
+## 📋 Usage Guidelines
+
+### Before Running Scripts:
+1. **Backup Database**: Always backup your database before running migration scripts
+2. **Test Environment**: Run scripts in development environment first
+3. **Check Dependencies**: Ensure database connection is working
+
+### After Running Scripts:
+1. **Verify Results**: Check that migrations completed successfully
+2. **Test Functionality**: Verify affected features work correctly
+3. **Clean Up**: Delete temporary files, especially encrypt_password.php
+
+### Security Notes:
+- **Access Control**: These scripts should only be accessible by administrators
+- **Production Safety**: Remove or restrict access in production environments
+- **Log Review**: Check logs for any errors or issues after running scripts
+
+## 🔄 Execution Order
+
+For fresh installations or major updates:
+1. `migrate_database.php` - Core database setup
+2. `standardize_database.php` - Column standardization
+3. `add_linkedin_integration.php` - LinkedIn features
+4. `fix_password_reset.php` - Password reset fixes
+5. Test with debug scripts to verify functionality
+
+## 📁 File Organization
+
+All debug and testing files are organized in `/admin/Debug/` for:
+- **Security**: Admin-only access
+- **Organization**: Separation from production code
+- **Maintenance**: Easy identification and management
+
+## ⚠️ Important Notes
+
+- **Admin Access Only**: All scripts require admin authentication
+- **Development Use**: Primarily for development and debugging
+- **Documentation**: Update this README when adding new scripts
+- **Security**: Remove sensitive scripts (like encrypt_password.php) after use

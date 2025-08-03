@@ -1,0 +1,45 @@
+# Security keys - DO NOT COMMIT
+Secure/keys.json
+Secure/keys_backup_*.json
+config/keys.json
+config/keys_backup_*.json
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Database credentials
+config/database.php
+
+# Log files
+logs/
+*.log
+
+# Uploaded files
+uploads/*
+!uploads/.htaccess
+
+# Cache files
+cache/
+tmp/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*~

@@ -1,0 +1,21 @@
+# Deny all web access to this directory
+<Files "*">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Alternative Apache 2.4+ syntax
+<RequireAll>
+    Require all denied
+</RequireAll>
+
+# Protect specific file types
+<FilesMatch "\.(env|key|json|log)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Custom error pages with HTTP Cats
+ErrorDocument 403 /Luthor/error_pages/403.php
+ErrorDocument 404 /Luthor/error_pages/404.php
+ErrorDocument 500 /Luthor/error_pages/500.php

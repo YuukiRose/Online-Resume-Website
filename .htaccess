@@ -1,0 +1,22 @@
+# Custom error pages with HTTP Cats
+ErrorDocument 403 /Luthor/error_pages/403_simple.php
+ErrorDocument 404 /Luthor/error_pages/404_simple.php
+
+# Security configurations
+RewriteEngine On
+
+# Prevent direct access to sensitive files
+<FilesMatch "\.(env|key|json|log|bak)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to configuration files
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Optional: Enable HTTPS redirect (uncomment if needed)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
