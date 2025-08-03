@@ -1,6 +1,6 @@
 <?php
 /**
- * Luthor Portfolio - Fresh Installation Tool
+ * Portfolio - Fresh Installation Tool
  * Complete setup wizard for new installations
  * Generates encryption keys, configures database, creates admin account
  */
@@ -26,6 +26,7 @@ class InstallationManager {
         $keyFiles = [
             __DIR__ . '/secure/K.env',
             __DIR__ . '/secure/D.env',
+            __DIR__ . '/secure/E.env',
             __DIR__ . '/secure/keys.json'
         ];
         
@@ -363,7 +364,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['install'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luthor Portfolio - Installation Wizard</title>
+    <title> Portfolio - Installation Wizard</title>
     <style>
         * {
             margin: 0;
@@ -577,7 +578,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['install'])) {
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 Luthor Portfolio</h1>
+            <h1>🚀 Portfolio</h1>
             <p>Professional Portfolio Installation Wizard</p>
         </div>
         
@@ -594,7 +595,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['install'])) {
             <?php if (!empty($installationStatus) && $installer->isComplete()): ?>
                 <div class="success">
                     <h3>🎉 Installation Completed Successfully!</h3>
-                    <p>Your Luthor Portfolio has been installed and configured.</p>
+                    <p>Your Portfolio has been installed and configured.</p>
                 </div>
                 
                 <div class="status-container">
@@ -758,7 +759,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['install'])) {
                     
                     <div style="text-align: center; margin-top: 40px;">
                         <button type="submit" name="install" class="btn">
-                            🚀 Install Luthor Portfolio
+                            🚀 Install Portfolio
                         </button>
                     </div>
                 </form>
